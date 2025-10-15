@@ -11,6 +11,7 @@ require("cfg.notify")
 require("cfg.oil")
 require("cfg.theme")
 require("cfg.trim")
+require("cfg.supermaven")
 
 require("cfg.snippets")
 require("cfg.cmp")

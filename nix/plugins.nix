@@ -1,4 +1,5 @@
 {vimPlugins}: with vimPlugins; [
+  # Core
   blink-cmp         # cfg.cmp -> luasnip, nvim-lspconfig
   boole-nvim        # cfg.boole
   catppuccin-nvim   # cfg.theme
@@ -10,6 +11,7 @@
   oil-nvim          # cfg.oil -> nvim-web-devicons
   trim-nvim         # cfg.trim
   telescope-nvim    # cfg.telescope
-
+  # Extra
   nvim-notify       # cfg.notify
+  supermaven-nvim   # cfg.supermaven
 ]
