@@ -1,6 +1,7 @@
 let
   presets = {
     default = presets.minimal;
+    full = presets.minimal;
     minimal = {
       aliases = ["vi" "vim"];
       runtime = [];

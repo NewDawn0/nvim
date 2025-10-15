@@ -26,8 +26,10 @@
       nvim-bld = pkgs.callPackage ./nix/nvim { };
       presets = import ./nix/presets.nix;
       nvim = nvim-bld.fromPreset presets.default;
+      nvim-full = nvim-bld.fromPreset presets.full;
+      nvim-minimal = nvim-bld.fromPreset presets.minimal;
     in {
-      inherit nvim;
+      inherit nvim nvim-minimal nvim-full;
       default = nvim;
     });
   };
