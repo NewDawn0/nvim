@@ -1,4 +1,4 @@
 {vimPlugins}: with vimPlugins; [
-  telescope-nvim
-  catppuccin-nvim
+  boole-nvim        # cfg.boole
+  catppuccin-nvim   # cfg.theme
 ]
