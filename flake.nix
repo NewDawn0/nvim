@@ -14,7 +14,7 @@
       nvim = self.packages.${prev.system}.default;
     };
     packages = utils.lib.eachSystem { } (pkgs: let
-      nvim = pkgs.callPackage ./nvim.nix { };
+      nvim = pkgs.callPackage ./nix/nvim.nix { };
     in {
       inherit nvim;
       default = nvim;
