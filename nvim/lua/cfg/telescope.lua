@@ -30,6 +30,7 @@ local keybinds = {
 for key, cmd in pairs(keybinds) do
 	vim.keymap.set("n", key, cmd[1], { silent = true, noremap = true, desc = cmd.desc })
 end
+-- TODO: Check if these are needed
 -- map("n", "<leader>dc", ":Telescope dap commands<CR>")
 -- map("n", "<leader>dC", ":Telescope dap configurations<CR>")
 -- map("n", "<leader>dP", ":Telescope dap list_breakpoints<CR>")
