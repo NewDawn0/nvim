@@ -1,7 +1,7 @@
 { callPackage
 , lib
 }: let
-  presets = callPackage ../presets {};
+  presets = import ../presets.nix;
 in {
   fromPreset = p: with lib; makeOverridable
     (callPackage ./builder.nix {})

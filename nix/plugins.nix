@@ -1,0 +1,15 @@
+{vimPlugins}: with vimPlugins; [
+  blink-cmp         # cfg.cmp -> luasnip, nvim-lspconfig
+  boole-nvim        # cfg.boole
+  catppuccin-nvim   # cfg.theme
+  friendly-snippets #
+  luasnip           # cfg.snippets -> friendly-snippets
+  mini-pairs        # setup-fn
+  nvim-lspconfig    # -> cfg.lsps
+  nvim-web-devicons #
+  oil-nvim          # cfg.oil -> nvim-web-devicons
+  trim-nvim         # cfg.trim
+  telescope-nvim    # cfg.telescope
+
+  nvim-notify       # cfg.notify
+]

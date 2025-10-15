@@ -5,20 +5,18 @@
 , vimPlugins
 }:
 { aliases
-, modules
-, plugins
 , runtime
 , support
 }: let
   util = callPackage ./util.nix {};
   finalPkgs = runtime
     ++ (callPackage ../runtime { inherit support; });
-  nvimRC = util.mkRC { inherit modules support; rcPath = ../../nvim; };
+  nvimRC = util.mkRC { inherit support; rcPath = ../../nvim; };
 in (neovim.override {
   configure = {
     customRC = ''lua dofile("${nvimRC}/init.lua")'';
     packages.all = {
-      start = [ nvimRC vimPlugins.custom ] ++ plugins;
+      start = [ nvimRC vimPlugins.custom ] ++ (callPackage ../plugins.nix {});
       opt = [];
     };
   };

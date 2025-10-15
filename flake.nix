@@ -24,7 +24,7 @@
       ];
     } (pkgs: let
       nvim-bld = pkgs.callPackage ./nix/nvim { };
-      presets = pkgs.callPackage ./nix/presets { };
+      presets = import ./nix/presets.nix;
       nvim = nvim-bld.fromPreset presets.default;
     in {
       inherit nvim;
