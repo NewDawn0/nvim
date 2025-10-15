@@ -1,10 +1,13 @@
 let
+  shared = {
+    aliases = ["vi" "vim"];
+    runtime = [];
+  };
   presets = {
     default = presets.minimal;
     full = presets.minimal;
     minimal = {
-      aliases = ["vi" "vim"];
-      runtime = [];
+      inherit (shared) aliases runtime;
       support = {
         all = false;
         lua = true;
