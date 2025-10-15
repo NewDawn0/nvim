@@ -2,6 +2,7 @@
 , lib
 , makeWrapper
 , neovim
+, vimPlugins
 }:
 { aliases
 , modules
@@ -12,12 +13,12 @@
   util = callPackage ./util.nix {};
   finalPkgs = runtime
     ++ (callPackage ../runtime { inherit support; });
-  nvimRC = util.mkRC { inherit modules; rcPath = ../../nvim; };
+  nvimRC = util.mkRC { inherit modules support; rcPath = ../../nvim; };
 in (neovim.override {
   configure = {
     customRC = ''lua dofile("${nvimRC}/init.lua")'';
     packages.all = {
-      start = [ nvimRC ] ++ plugins;
+      start = [ nvimRC vimPlugins.custom ] ++ plugins;
       opt = [];
     };
   };

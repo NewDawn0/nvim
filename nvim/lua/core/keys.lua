@@ -1,8 +1,15 @@
+local function toggleDiag()
+  vim.diagnostic.config({
+    virtual_text = require("toggle").toggle("Show diagnostics")
+  })
+end
+
 local keymaps = {
   n = {
     ["<leader>w"] = { ":write<CR>", desc = "Save buffer" },
     ["<leader>q"] = { ":quit<CR>",  desc = "Quit buffer" },
-    ["<leader>lf"] = { ":lua vim.lsp.buf.format()<CR>", desc = "Format buffer" },
+    ["<leader>lf"] = { vim.lsp.buf.format, desc = "Format buffer" },
+    ["<leader>lt"] = { toggleDiag, desc = "Toggle inline diagnostics" },
   },
   v = {
     ["<"] = {"<gv", desc = "Unindent selection"},

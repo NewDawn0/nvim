@@ -31,9 +31,30 @@
         "type": "github"
       }
     },
+    "pmm-nvim": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": [
+          "utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1760533765,
+        "narHash": "sha256-h+sm+ptfVNCnCP36Fy2fYPb/CBvDFPC5T2HkUOrDEZ4=",
+        "path": "/home/dawn/GitHub/shitbox/pmm-re",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/dawn/GitHub/shitbox/pmm-re",
+        "type": "path"
+      }
+    },
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
+        "pmm-nvim": "pmm-nvim",
         "utils": "utils"
       }
     },
