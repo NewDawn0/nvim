@@ -1,2 +1,4 @@
-new.log
-old.log
+*.log
+aliases.sh
+test.lua
+tmp
