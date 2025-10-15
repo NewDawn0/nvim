@@ -3,7 +3,8 @@ require("core.opts")
 require("core.keys")
 
 -- Plugins
-require("mini.pairs").setup {}
 require("cfg.boole")
+require("cfg.oil")
 require("cfg.theme")
 require("cfg.trim")
+require("mini.pairs").setup {}
