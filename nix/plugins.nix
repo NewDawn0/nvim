@@ -13,7 +13,6 @@
   telescope-dap-nvim            # --
   telescope-fzf-native-nvim     # --
   telescope-git-conflicts-nvim  # --
-  telescope-media-files-nvim    # --
   telescope-nvim                # cfg.telescope -> nvim-web-devicons, plenary-nvim, telescope-dap-nvim, telescope-fzf-native-nvim, telescope-git-conflicts-nvim, telescope-media-files-nvim
   trim-nvim                     # cfg.trim
   # Extra
