@@ -18,10 +18,11 @@
   };
 in (neovim.override {
   configure = {
+    customRC = ''lua dofile("${nvimRC}/init.lua")'';
     packages.all = {
       start = [ nvimRC ] ++ (callPackage ./plugins.nix {});
+      opt = [];
     };
-    customRC = ''lua dofile("${nvimRC}/init.lua")'';
   };
 }).overrideAttrs (old: {
   nativeBuildInputs = old.nativeBuildInputs ++ [makeWrapper];

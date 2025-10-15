@@ -1,2 +1,2 @@
-print("Hello from init lua")
-print("Hello from init lua")
+vim.g.mapleader = " "
+require("core.opts")
