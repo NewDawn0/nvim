@@ -1,5 +1,9 @@
 { callPackage
 , neovim
+}:
+{ aliases
+, runtime
+, support
 }: neovim.override {
   configure = {
     packages.all = {

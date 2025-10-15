@@ -14,7 +14,9 @@
       nvim = self.packages.${prev.system}.default;
     };
     packages = utils.lib.eachSystem { } (pkgs: let
-      nvim = pkgs.callPackage ./nix/nvim.nix { };
+      presets = import ./nix/presets.nix;
+      builder = pkgs.callPackage ./nix/builder.nix { };
+      nvim = pkgs.lib.makeOverridable builder presets.default;
     in {
       inherit nvim;
       default = nvim;
