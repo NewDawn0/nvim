@@ -12,6 +12,7 @@ require("cfg.oil")
 require("cfg.theme")
 require("cfg.trim")
 require("cfg.supermaven")
+require("cfg.telescope")
 
 require("cfg.snippets")
 require("cfg.cmp")
