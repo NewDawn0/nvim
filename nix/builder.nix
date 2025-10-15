@@ -2,6 +2,7 @@
 , lib
 , makeWrapper
 , neovim
+, vimUtils
 }:
 { aliases
 , runtime
@@ -9,14 +10,18 @@
 }: let
   finalPkgs = runtime
     ++ (callPackage ./runtime { inherit support; });
+  nvimRC = vimUtils.buildVimPlugin {
+    name = "nvim-config";
+    pname = "nvim-config";
+    doCheck = false;
+    src = lib.cleanSource ../nvim;
+  };
 in (neovim.override {
   configure = {
     packages.all = {
-      start = (callPackage ./plugins.nix {});
+      start = [ nvimRC ] ++ (callPackage ./plugins.nix {});
     };
-    customRC = ''
-      lua dofile("${../nvim/init.lua}")
-    '';
+    customRC = ''lua dofile("${nvimRC}/init.lua")'';
   };
 }).overrideAttrs (old: {
   nativeBuildInputs = old.nativeBuildInputs ++ [makeWrapper];
