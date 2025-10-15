@@ -1,4 +1,4 @@
-{
+{}: {
   default = {
     aliases = ["vi" "vim"];
     runtime = [];

@@ -8,15 +8,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
   outputs = { self, utils, ... }: {
     overlays.default = final: prev: {
       nvim = self.packages.${prev.system}.default;
     };
     packages = utils.lib.eachSystem { } (pkgs: let
-      presets = import ./nix/presets.nix;
-      builder = pkgs.callPackage ./nix/builder.nix { };
-      nvim = pkgs.lib.makeOverridable builder presets.default;
+      nvim-bld = pkgs.callPackage ./nix/nvim { };
+      presets = pkgs.callPackage ./nix/presets { };
+      nvim = nvim-bld.fromPreset presets.default;
     in {
       inherit nvim;
       default = nvim;

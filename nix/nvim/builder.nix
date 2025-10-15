@@ -2,20 +2,15 @@
 , lib
 , makeWrapper
 , neovim
-, vimUtils
 }:
 { aliases
 , runtime
 , support
 }: let
+  util = callPackage ./util.nix {};
   finalPkgs = runtime
-    ++ (callPackage ./runtime { inherit support; });
-  nvimRC = vimUtils.buildVimPlugin {
-    name = "nvim-config";
-    pname = "nvim-config";
-    doCheck = false;
-    src = lib.cleanSource ../nvim;
-  };
+    ++ (callPackage ../runtime { inherit support; });
+  nvimRC = util.mkRC { rcPath = ../../nvim; };
 in (neovim.override {
   configure = {
     customRC = ''lua dofile("${nvimRC}/init.lua")'';
