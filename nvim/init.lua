@@ -5,3 +5,4 @@ require("core.keys")
 -- Plugins
 require("cfg.boole")
 require("cfg.theme")
+require("cfg.trim")
