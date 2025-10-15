@@ -5,5 +5,5 @@
 in {
   fromPreset = p: with lib; makeOverridable
     (callPackage ./builder.nix {})
-    (recursiveUpdate presets.default p);
+    (recursiveUpdate presets.minimal p);
 }
