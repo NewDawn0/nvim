@@ -1,25 +1,25 @@
 -- Setup toggles
-local toggles = require("core.util").toggles
-toggles.showDiag = true
-toggles.autoFormat = true
+local util = require("core.util")
+util.toggles.showDiag = true
+util.toggles.autoFormat = true
 
 -- Toggle functions
 local function toggleDiag()
-  toggles.showDiag = not toggles.showDiag
+  util.toggles.showDiag = not util.toggles.showDiag
   vim.diagnostic.config({
-    virtual_text = toggles.showDiag,
+    virtual_text = util.toggles.showDiag,
   })
 end
 local function toggleFmt()
-  toggles.autoFormat = not toggles.autoFormat
+  toggles.autoFormat = not util.toggles.autoFormat
 end
 
 -- Set up inital state
 vim.diagnostic.config({
-  virtual_text = toggles.showDiag,
+  virtual_text = util.toggles.showDiag,
 })
 
-local keymaps = {
+util.setKeymap({
   n = {
     ["<leader>w"] = { ":write<CR>", desc = "Save buffer" },
     ["<leader>q"] = { ":quit<CR>",  desc = "Quit buffer" },
@@ -35,10 +35,4 @@ local keymaps = {
   [{"n", "v"}] = {
     ["<leader>h"] = { ":nohlsearch<CR>", desc = "Disable search hl" },
   }
-}
-
-for mode, maps in pairs(keymaps) do
-  for key, cmd in pairs(maps) do
-    vim.keymap.set(mode, key, cmd[1], { silent = true, noremap = true, desc = cmd.desc })
-  end
-end
+})
