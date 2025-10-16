@@ -1,4 +1,6 @@
 local oil = require("oil")
+local toggles = require("core.util").toggles
+toggles.oil = false
 
 oil.setup({
   default_file_explorer = true,
@@ -14,7 +16,8 @@ oil.setup({
 })
 
 vim.keymap.set("n", "<leader>ft", function()
-  _ = (require("toggle").toggle("Oil open") and oil.open or oil.close)()
+  toggles.oil = not toggles.oil
+  _ = (toggles.oil and oil.open or oil.close)()
 end, {
   desc = "Toggle file explorer",
   noremap = true,

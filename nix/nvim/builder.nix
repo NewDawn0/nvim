@@ -16,7 +16,7 @@ in (neovim.override {
   configure = {
     customRC = ''lua dofile("${nvimRC}/init.lua")'';
     packages.all = {
-      start = map (lib.pcall-me-maybe.compilePlugin) ([ nvimRC vimPlugins.custom ] ++ (callPackage ../plugins.nix {}));
+      start = map (lib.pcall-me-maybe.compilePlugin) ([ nvimRC ] ++ (callPackage ../plugins.nix {}));
       opt = [];
     };
   };

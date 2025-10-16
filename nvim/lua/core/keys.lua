@@ -1,15 +1,31 @@
+-- Setup toggles
+local toggles = require("core.util").toggles
+toggles.showDiag = true
+toggles.autoFormat = true
+
+-- Toggle functions
 local function toggleDiag()
+  toggles.showDiag = not toggles.showDiag
   vim.diagnostic.config({
-    virtual_text = require("toggle").toggle("Show diagnostics")
+    virtual_text = toggles.showDiag,
   })
 end
+local function toggleFmt()
+  toggles.autoFormat = not toggles.autoFormat
+end
+
+-- Set up inital state
+vim.diagnostic.config({
+  virtual_text = toggles.showDiag,
+})
 
 local keymaps = {
   n = {
     ["<leader>w"] = { ":write<CR>", desc = "Save buffer" },
     ["<leader>q"] = { ":quit<CR>",  desc = "Quit buffer" },
     ["<leader>lf"] = { vim.lsp.buf.format, desc = "Format buffer" },
-    ["<leader>lt"] = { toggleDiag, desc = "Toggle inline diagnostics" },
+    ["<leader>ltd"] = { toggleDiag, desc = "Toggle inline diagnostics" },
+    ["<leader>ltf"] = { toggleFmt, desc = "Toggle auto formatting" },
   },
   v = {
     ["<"] = {"<gv", desc = "Unindent selection"},

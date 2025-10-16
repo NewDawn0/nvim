@@ -6,6 +6,7 @@
   friendly-snippets             # --
   luasnip                       # cfg.snippets -> friendly-snippets
   mini-pairs                    # setup-fn
+  mini-surround                 # cfg.surround
   nvim-lspconfig                # -> cfg.lsps
   nvim-web-devicons             # --
   oil-nvim                      # cfg.oil -> nvim-web-devicons
