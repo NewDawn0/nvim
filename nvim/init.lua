@@ -17,6 +17,7 @@ require("cfg.surround")
 require("cfg.telescope")
 require("cfg.theme")
 require("cfg.trim")
+require("cfg.cokeline")
 
 require("cfg.snippets")
 require("cfg.cmp")

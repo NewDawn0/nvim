@@ -19,4 +19,5 @@
   # Extra
   nvim-notify                   # cfg.notify
   supermaven-nvim               # cfg.supermaven
+  nvim-cokeline                 # cfg.cokeline
 ]
