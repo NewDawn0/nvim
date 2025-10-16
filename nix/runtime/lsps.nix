@@ -2,11 +2,12 @@
 , pkgs
 , support
 }: let
-  enabled = elem: support.all || support.${elem};
+  enabled = elem: support.langs.all || support.langs.${elem};
 in (with lib; concatLists (mapAttrsToList (k: v: optionals (enabled k) v) (with pkgs; {
   ansible = [ansible-language-server];
   arduino = [arduino-language-server];
   lua = [lua-language-server];
+  nix = [nixd nil];
 })))
 # ++ mkLang "any"         [codebook]
 # ++ mkLang "arduino"     [arduino-language-server]

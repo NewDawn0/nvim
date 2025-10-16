@@ -9,11 +9,15 @@ let
     minimal = {
       inherit (shared) aliases runtime;
       support = {
-        all = false;
-        lua = true;
-        nix = true;
-        ansible = true;
-        arduino = true;
+        utility = {};
+        langs = {
+          all = false;
+          lua = true;
+          nix = true;
+          ansible = true;
+          arduino = true;
+        };
+        ui = {};
       };
     };
   };
