@@ -1,6 +1,7 @@
-local aucmd = vim.api.nvim_create_autocmd
-local fn = vim.fn
+local api = vim.api
+local aucmd = api.nvim_create_autocmd
 local bo = vim.bo
+local fn = vim.fn
 local toggles = require("core.util").toggles
 
 -- Fix asm comment-string for fasm & nasm style
@@ -52,6 +53,7 @@ aucmd("BufReadPost", {
 	end,
 })
 
+-- Format on save (when enabled)
 aucmd("BufWritePre", {
   callback = function()
     if toggles.autoFormat then
@@ -60,22 +62,19 @@ aucmd("BufWritePre", {
   end
 })
 
--- Display last write time
--- vim.api.nvim_create_autocmd("BufWritePost", {
--- 	group = "UserConf",
--- 	callback = function()
--- 		local path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":~:.")
--- 		local lines = vim.api.nvim_buf_line_count(0)
--- 		local time = os.date("%I:%M:%S%p")
---
--- 		local msgParts = {
--- 			{ time .. " ", "SaveMsgTime" },
--- 			{ path .. " ", "SaveMsgPath" },
--- 			{ lines .. "L", "SaveMsgLines" },
--- 		}
---
--- 		vim.api.nvim_echo({ { "", "None" } }, false, {})
--- 		vim.cmd.redraw()
--- 		vim.api.nvim_echo(msgParts, false, {})
--- 	end,
--- })
+-- Improved write time msg
+aucmd("BufWritePost", {
+  callback = function()
+    local path = fn.fnamemodify(api.nvim_buf_get_name(0), ":~:.")
+		local lines = api.nvim_buf_line_count(0)
+		local time = os.date("%I:%M:%S%p")
+    local msgParts = {
+      { "`" .. path .. "` at ", "" },
+      { time .. " ", "" },
+      { lines .. "L", "" },
+    }
+    api.nvim_echo({ { "", "None" } }, false, {})
+    vim.cmd.redraw()
+    api.nvim_echo(msgParts, false, {})
+  end
+})
