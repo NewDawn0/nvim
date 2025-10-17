@@ -2,7 +2,7 @@ local lsp = vim.lsp
 
 ---@param name string Name of the language
 local function enabled(name)
-  return vim.g.support.langs["all"] or vim.g.support.langs[name]
+  return vim.g.support["all"] or vim.g.support[name]
 end
 
 local perLang = {

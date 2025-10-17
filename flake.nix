@@ -23,14 +23,7 @@
         pmm-nvim.overlays.default
       ];
     } (pkgs: let
-      nvim-bld = pkgs.callPackage ./nix/nvim { };
-      presets = import ./nix/presets.nix;
-      nvim = nvim-bld.fromPreset presets.default;
-      nvim-full = nvim-bld.fromPreset presets.full;
-      nvim-minimal = nvim-bld.fromPreset presets.minimal;
-    in {
-      inherit nvim nvim-minimal nvim-full;
-      default = nvim;
-    });
+      nvim = pkgs.callPackage ./nix { };
+    in { default = nvim; });
   };
 }
