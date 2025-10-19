@@ -20,4 +20,8 @@
   nvim-notify                   # cfg.notify
   supermaven-nvim               # cfg.supermaven
   nvim-cokeline                 # cfg.cokeline
+  nvim-colorizer-lua            # cfg.colorizer
+  vim-tmux-navigator            # cfg.tmux
+  markdown-preview-nvim         # --
+  typst-preview-nvim            # setup-fn
 ]

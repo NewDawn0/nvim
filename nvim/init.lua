@@ -1,23 +1,26 @@
 vim.g.mapleader = " "
 vim.g.toggles = vim.g.toggles or {}
 -- Core
-require("core.opts")
-require("core.keys")
 require("core.aucmd")
+require("core.keys")
 require("core.lsps")
+require("core.opts")
 require("core.ui")
-
--- Plugins
+-- Plugins: With setup-fn
 require("mini.pairs").setup {}
-require("cfg.boole")
-require("cfg.notify")
-require("cfg.oil")
-require("cfg.supermaven")
-require("cfg.surround")
-require("cfg.telescope")
-require("cfg.theme")
-require("cfg.trim")
-require("cfg.cokeline")
-
-require("cfg.snippets")
-require("cfg.cmp")
+require("typst-preview").setup {}
+-- Plugins: With file
+require("opt.boole")
+require("opt.cokeline")
+require("opt.colorizer")
+require("opt.notify")
+require("opt.oil")
+require("opt.supermaven")
+require("opt.surround")
+require("opt.telescope")
+require("opt.theme")
+require("opt.tmux")
+require("opt.trim")
+-- PluginoptWith deps
+require("opt.snippets")
+require("opt.cmp")
