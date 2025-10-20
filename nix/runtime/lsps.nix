@@ -4,6 +4,7 @@
 }: let
   enabled = elem: support.all || support.${elem};
 in (with lib; concatLists (mapAttrsToList (k: v: optionals (enabled k) v) (with pkgs; {
+  angular = [angular-language-server];
   ansible = [ansible-language-server];
   arduino = [arduino-language-server];
   assmebly = [asm-lsp];

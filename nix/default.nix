@@ -6,6 +6,7 @@
     aliases = ["vi" "vim"];
     support = {
       all = true;
+      angular = false;
       ansible = false;
       arduino = false;
       assembly = false;
