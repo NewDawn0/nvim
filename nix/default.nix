@@ -5,9 +5,10 @@
   defaults = {
     aliases = ["vi" "vim"];
     support = {
-      all = false;
+      all = true;
       ansible = false;
       arduino = false;
+      assembly = false;
       lua = true;
       nix = true;
     };
