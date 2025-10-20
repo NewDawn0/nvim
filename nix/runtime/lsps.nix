@@ -7,12 +7,11 @@ in (with lib; concatLists (mapAttrsToList (k: v: optionals (enabled k) v) (with 
   ansible = [ansible-language-server];
   arduino = [arduino-language-server];
   assmebly = [asm-lsp];
+  astro = [astro-language-server];
   lua = [lua-language-server];
   nix = [nixd nil];
 })))
 # ++ mkLang "any"         [codebook]
-# ++ mkLang "astro"       [astro-language-server]
-# ++ mkLang "c3"          [c3-ls]
 # ++ mkLang "javascript"  [biome deno]
 # ++ mkLang "lua"         [lua-language-server]
 # ++ mkLang "nix"         [nix nixd nil]

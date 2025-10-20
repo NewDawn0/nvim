@@ -3,6 +3,8 @@ local support =  {
   ansible = {"ansiblels"},
   arduino = {"arduino_language_server"},
   assembly = {"asm_lsp"},
+  astro = {"astro"},
+  c3 = {"c3-lsp"},
   lua = {"lua_ls"},
   nix = {"nixd", "nil"},
 }

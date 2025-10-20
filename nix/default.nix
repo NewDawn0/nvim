@@ -9,6 +9,7 @@
       ansible = false;
       arduino = false;
       assembly = false;
+      astro = false;
       lua = true;
       nix = true;
     };
