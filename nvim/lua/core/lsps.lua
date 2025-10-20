@@ -4,6 +4,7 @@ local support =  {
   ansible = {"ansiblels"},
   arduino = {"arduino_language_server"},
   assembly = {"asm_lsp"},
+  awk = {"awk_ls"},
   astro = {"astro"},
   lua = {"lua_ls"},
   make = {"autotools_ls"},

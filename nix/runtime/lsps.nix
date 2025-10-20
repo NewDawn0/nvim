@@ -9,6 +9,7 @@ in (with lib; concatLists (mapAttrsToList (k: v: optionals (enabled k) v) (with 
   arduino = [arduino-language-server];
   assmebly = [asm-lsp];
   astro = [astro-language-server];
+  awk = [awk-language-server];
   lua = [lua-language-server];
   make = [autotools-language-server];
   nix = [nixd nil];

@@ -11,6 +11,7 @@
       arduino = false;
       assembly = false;
       astro = false;
+      awk = false;
       lua = true;
       make = false;
       nix = true;
