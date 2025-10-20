@@ -12,6 +12,7 @@
       assembly = false;
       astro = false;
       lua = true;
+      make = false;
       nix = true;
     };
   };

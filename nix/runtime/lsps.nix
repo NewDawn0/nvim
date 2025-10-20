@@ -10,6 +10,7 @@ in (with lib; concatLists (mapAttrsToList (k: v: optionals (enabled k) v) (with 
   assmebly = [asm-lsp];
   astro = [astro-language-server];
   lua = [lua-language-server];
+  make = [autotools-language-server];
   nix = [nixd nil];
 })))
 # ++ mkLang "any"         [codebook]

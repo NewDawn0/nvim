@@ -6,6 +6,7 @@ local support =  {
   assembly = {"asm_lsp"},
   astro = {"astro"},
   lua = {"lua_ls"},
+  make = {"autotools_ls"},
   nix = {"nixd", "nil"},
 }
 
