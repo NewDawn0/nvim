@@ -6,12 +6,11 @@
 in (with lib; concatLists (mapAttrsToList (k: v: optionals (enabled k) v) (with pkgs; {
   ansible = [ansible-language-server];
   arduino = [arduino-language-server];
+  assmebly = [asm-lsp];
   lua = [lua-language-server];
   nix = [nixd nil];
 })))
 # ++ mkLang "any"         [codebook]
-# ++ mkLang "arduino"     [arduino-language-server]
-# ++ mkLang "assembly"    [asm-lsp]
 # ++ mkLang "astro"       [astro-language-server]
 # ++ mkLang "c3"          [c3-ls]
 # ++ mkLang "javascript"  [biome deno]
