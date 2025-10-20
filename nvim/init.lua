@@ -21,6 +21,6 @@ require("opt.telescope")
 require("opt.theme")
 require("opt.tmux")
 require("opt.trim")
--- PluginoptWith deps
+-- Plugin: with deps
 require("opt.snippets")
 require("opt.cmp")
