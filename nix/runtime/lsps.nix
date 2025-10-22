@@ -4,34 +4,75 @@
 }: let
   enabled = elem: support.all || support.${elem};
 in (with lib; concatLists (mapAttrsToList (k: v: optionals (enabled k) v) (with pkgs; {
-  angular = [angular-language-server];
-  ansible = [ansible-language-server];
-  arduino = [arduino-language-server];
-  assmebly = [asm-lsp];
-  astro = [astro-language-server];
-  awk = [awk-language-server];
-  lua = [lua-language-server];
-  make = [autotools-language-server];
-  nix = [nixd nil];
+  angular     = [angular-language-server];
+  ansible     = [ansible-language-server];
+  arduino     = [arduino-language-server];
+  assembly    = [asm-lsp];
+  astro       = [astro-language-server biome];
+  awk         = [awk-language-server];
+  bash        = [bash-language-server];
+  c           = [clang-tools mesonlsp starpls cmake-language-server neocmakelsp jinja-lsp autotools-language-server];
+  clojure     = [clojure-lsp];
+  cpp         = [clang-tools mesonlsp starpls cmake-language-server neocmakelsp jinja-lsp autotools-language-server];
+  csharp      = [csharp-ls roslyn-ls];
+  css         = [biome vscode-langservers-extracted tailwindcss-language-server];
+  cuda        = [clang-tools];
+  d           = [serve-d];
+  dart        = [dart];
+  diagnostics = [diagnostic-languageserver];
+  docker      = [docker-language-server docker-compose-language-service];
+  elixir      = [beamPackages.elixir-ls lexical];
+  elm         = with elmPackages; [elm-language-server];
+  erlang      = [erlang-language-platform beamPackages.erlang-ls];
+  fennel      = [fennel-ls];
+  fish        = [fish-lsp];
+  fortran     = [fortls];
+  gitlab      = [gitlab-ci-ls];
+  gleam       = [gleam];
+  glsl        = [glsl_analyzer glslls];
+  go          = [golangci-lint-langserver gopls];
+  godot       = [godot];
+  # haskell     = with haskellPackages; [ghcide hls]; FIXME: Broken
+  haskell     = with haskellPackages; [ghcide];
+  helm        = [helm-ls];
+  html        = [biome emmet-language-server vscode-langservers-extracted htmx-lsp templ];
+  java        = [jdt-language-server];
+  javascript  = [biome deno vscode-langservers-extracted oxlint];
+  json        = [biome vscode-langservers-extracted];
+  kotlin      = [kotlin-language-server];
+  latex       = [texliveFull texlab];
+  llvmIR      = []; # TODO: Add server
+  lua         = [lua-language-server luau-lsp stylua];
+  markdown    = [markdown-oxide marksman];
+  nginx       = [nginx-language-server];
+  nickel      = [nls];
+  nix         = [nixd nil statix nixfmt];
+  nushell     = [nushell];
+  objc        = [clang-tools sourcekit-lsp];
+  odin        = [ols];
+  perl        = [perlPackages.PerlLanguageServer perlnavigator perlPackages.PLS];
+  powershell  = [powershell-editor-services];
+  protobuf    = [buf protols];
+  python      = [basedpyright python3Packages.python-lsp-server];
+  react       = [biome deno];
+  ruby        = [ruby-lsp];
+  rust        = [rust-analyzer];
+  scala       = [metals];
+  scheme      = [akkuPackages.scheme-langserver];
+  soldity     = [solc];
+  spelling    = [codebook ltex-ls-plus typos-lsp];
+  sql         = [postgres-lsp sqls];
+  svelte      = [biome svelte-language-server];
+  swift       = [sourcekit-lsp];
+  systemd     = [systemd-language-server];
+  terraform   = [terraform-lsp terraform-ls];
+  toml        = [taplo];
+  typescript  = [biome deno vscode-langservers-extracted oxlint];
+  typst       = [tinymist];
+  vim         = [vim-language-server];
+  vue         = [biome vue-language-server];
+  wasm        = [wasm-language-tools];
+  wgsl        = [wgsl-analyzer];
+  yaml        = [yaml-language-server];
+  zig         = [zls];
 })))
-# ++ mkLang "any"         [codebook]
-# ++ mkLang "javascript"  [biome deno]
-# ++ mkLang "lua"         [lua-language-server]
-# ++ mkLang "nix"         [nix nixd nil]
-# ++ mkLang "protobuf"    [buf]
-# ++ mkLang "python"      [basedpyright]
-# ++ mkLang "rust"        [bacon]
-# ++ mkLang "shell"       [bash-language-server]
-# ++ mkLang "c"           [ccls clang-tools]
-# ++ mkLang "clojure"     [clojure-lsp]
-# ++ mkLang "cmake"       [cmake-language-server]
-# ++ mkLang "crystal"     [crystalline]
-# ++ mkLang "csharp"      [csharp-ls]
-# ++ mkLang "css"         [vscode-langservers-extracted]
-# ++ mkLang "dart"        [dart]
-# ++ mkLang "tex"         [luaPackages.digestif]
-# ++ mkLang "docker"      [docker-language-server docker-compose-language-service]
-# ++ mkLang "elixir"      [beamPackages.elixir-ls]
-# ++ mkLang "elm"         [elmPackages.elm-language-server]
-# ++ mkLang "erlang"      [erlang-language-platform beamPackages.erlang-ls]
-# ++ mkLang "emmet-ls"    [emmet-ls]
