@@ -1,27 +1,29 @@
 {vimPlugins}: with vimPlugins; [
   # Core
-  blink-cmp                     # cfg.cmp -> luasnip, nvim-lspconfig
-  boole-nvim                    # cfg.boole
-  catppuccin-nvim               # cfg.theme
+  blink-cmp                     # opt.cmp -> luasnip, nvim-lspconfig
+  boole-nvim                    # opt.boole
+  catppuccin-nvim               # opt.theme
   friendly-snippets             # --
-  luasnip                       # cfg.snippets -> friendly-snippets
+  luasnip                       # opt.snippets -> friendly-snippets
   mini-pairs                    # setup-fn
-  mini-surround                 # cfg.surround
-  nvim-lspconfig                # -> cfg.lsps
+  mini-surround                 # opt.surround
+  nvim-lspconfig                # -> opt.lsps
   nvim-web-devicons             # --
-  oil-nvim                      # cfg.oil -> nvim-web-devicons
+  oil-nvim                      # opt.oil -> nvim-web-devicons
   plenary-nvim                  # --
   telescope-dap-nvim            # --
   telescope-fzf-native-nvim     # --
   telescope-git-conflicts-nvim  # --
-  telescope-nvim                # cfg.telescope -> nvim-web-devicons, plenary-nvim, telescope-dap-nvim, telescope-fzf-native-nvim, telescope-git-conflicts-nvim, telescope-media-files-nvim
-  trim-nvim                     # cfg.trim
+  telescope-nvim                # opt.telescope -> nvim-web-devicons, plenary-nvim, telescope-dap-nvim, telescope-fzf-native-nvim, telescope-git-conflicts-nvim
+  trim-nvim                     # opt.trim
   # Extra
-  nvim-notify                   # cfg.notify
-  supermaven-nvim               # cfg.supermaven
-  nvim-cokeline                 # cfg.cokeline
-  nvim-colorizer-lua            # cfg.colorizer
-  vim-tmux-navigator            # cfg.tmux
+  nvim-notify                   # opt.notify
+  supermaven-nvim               # opt.supermaven
+  nvim-cokeline                 # opt.cokeline
+  nvim-colorizer-lua            # opt.colorizer
+  vim-tmux-navigator            # opt.tmux
   markdown-preview-nvim         # --
   typst-preview-nvim            # setup-fn
+  better-utils                  # --
+  nvim-treesitter.withAllGrammars
 ]

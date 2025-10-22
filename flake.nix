@@ -14,8 +14,11 @@
     };
   };
   outputs = { self, utils, ... }@inputs: {
-    overlays.default = final: prev: {
-      nvim = self.packages.${prev.system}.default;
+    overlays.default = final: prev: let
+      outs = self.packages.${prev.system};
+    in {
+      nvim = outs.nvim;
+      nvim-full = outs.nvim-full;
     };
     packages = utils.lib.eachSystem {
       overlays = with inputs; [
@@ -24,6 +27,10 @@
       ];
     } (pkgs: let
       nvim = pkgs.callPackage ./nix { };
-    in { default = nvim; });
+      nvim-full = nvim.withPresets (p: [ p.full ]);
+    in {
+      inherit nvim nvim-full;
+      default = nvim;
+    });
   };
 }

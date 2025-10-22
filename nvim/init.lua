@@ -1,5 +1,19 @@
 vim.g.mapleader = " "
-vim.g.toggles = vim.g.toggles or {}
+
+-- TODO: Finish TODOS
+-- [ ] Add lazy loading using pcall-me-maybe
+-- [ ] Make support modular like nvim-treeshitter
+-- [ ] Rewrite b16 nvim
+-- [ ] Add dap
+-- [ ] Fix telescope UI
+-- [ ] Add EBNF lsp & tester
+-- [ ] Add latex toolkit
+-- [ ] Check lsps & add functionality
+-- [ ] Create table formatter (haskell maybe)
+-- [ ] Add git support with ui
+-- [ ] Add doc support
+-- [ ] Add latex luasnip snippets
+
 -- Core
 require("core.aucmd")
 require("core.keys")
