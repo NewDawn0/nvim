@@ -12,7 +12,7 @@
   cpp         = false; # configs devops lowlevel
   csharp      = false; # configs webdev
   css         = false; # crypto
-  cuda        = false; # css
+  cuda        = false; # gpu
   d           = false; # devops
   dart        = false; # devops
   diagnostics = false; # devops
@@ -21,7 +21,7 @@
   elm         = false; # devops
   erlang      = false; # devops
   fennel      = false; # dotnet
-  fish        = false; # full
+  fish        = false; # shells
   fortran     = false; # functional
   gitlab      = false; # functional universal
   gleam       = false; # gamedev
