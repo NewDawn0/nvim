@@ -2,7 +2,7 @@ local api = vim.api
 local aucmd = api.nvim_create_autocmd
 local bo = vim.bo
 local fn = vim.fn
-local toggles = require("core.util").toggles
+local toggles = require("better-toggle").toggles
 
 -- Fix asm comment-string for fasm & nasm style
 aucmd({ "BufRead", "BufNewFile" }, {
@@ -56,7 +56,7 @@ aucmd("BufReadPost", {
 -- Format on save (when enabled)
 aucmd("BufWritePre", {
   callback = function()
-    if toggles.autoFormat then
+    if toggles["autoFormat"]:val() then
       vim.lsp.buf.format({ async = true })
     end
   end

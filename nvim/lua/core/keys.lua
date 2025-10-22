@@ -1,38 +1,42 @@
 -- Setup toggles
 local util = require("core.util")
-util.toggles.showDiag = true
-util.toggles.autoFormat = true
+local toggle = require("better-toggle")
+local toggles = toggle.toggles
+local sort = require("better-sort")
 
--- Toggle functions
-local function toggleDiag()
-  util.toggles.showDiag = not util.toggles.showDiag
-  vim.diagnostic.config({
-    virtual_text = util.toggles.showDiag,
-  })
-end
-local function toggleFmt()
-  toggles.autoFormat = not util.toggles.autoFormat
-end
+-- Toggles
+local diagt = toggle.new(nil, {
+  on = function(v)
+    vim.diagnostic.config({ virtual_text = v })
+  end
+})
+
+toggles["autoFormat"] = toggle.new()
+toggles["autoFormat"].next()
 
 -- Set up inital state
 vim.diagnostic.config({
-  virtual_text = util.toggles.showDiag,
+  virtual_text = diagt:val(),
 })
 
 util.setKeymap({
   n = {
     ["<leader>w"] = { ":write<CR>", desc = "Save buffer" },
-    ["<leader>q"] = { ":quit<CR>",  desc = "Quit buffer" },
+    ["<leader>q"] = { ":quit<CR>", desc = "Quit buffer" },
     ["<leader>lf"] = { vim.lsp.buf.format, desc = "Format buffer" },
-    ["<leader>ltd"] = { toggleDiag, desc = "Toggle inline diagnostics" },
-    ["<leader>ltf"] = { toggleFmt, desc = "Toggle auto formatting" },
+    ["<leader>lr"] = { vim.lsp.buf.rename, desc = "Rename symbol" },
+    ["<leader>td"] = { diagt.next, desc = "Toggle inline diagnostics" },
+    ["<leader>tf"] = { toggles["autoFormat"].next, desc = "Toggle auto formatting" },
   },
   v = {
-    ["<"] = {"<gv", desc = "Unindent selection"},
-    [">"] = {">gv", desc = "Indent selection"},
+    ["<"] = { "<gv", desc = "Unindent selection" },
+    [">"] = { ">gv", desc = "Indent selection" },
+    ["<leader>sc"] = { sort.chars, desc = "Sort lines" },
+    ["<leader>sw"] = { sort.words, desc = "Sort words" },
+    ["<leader>sl"] = { sort.lines, desc = "Sort lines" },
     ["<leader>ss"] = { ":sort<CR>", desc = "Sort lines" },
   },
-  [{"n", "v"}] = {
+  [{ "n", "v" }] = {
     ["<leader>h"] = { ":nohlsearch<CR>", desc = "Disable search hl" },
   }
 })
